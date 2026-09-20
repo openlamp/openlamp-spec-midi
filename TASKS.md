@@ -17,13 +17,13 @@ convention or implementation work.
   CC74 → sat, pitch-bend → hue), polyphonic.
 - **Channel → segment routing** (`lamp`) and the **per-window batching** of the beat pulse (SPEC §7).
 - **Reference implementations**:
-  - [openlamp/engine](https://github.com/openlamp/engine) — the reference engine (`midi.py`).
-  - [openlamp/wled-midi-web](https://github.com/openlamp/wled-midi-web) — single-HTML Web-MIDI impl,
+  - [openlamp/engine](https://github.com/openlamp/openlamp-engine-python) — the reference engine (`midi.py`).
+  - [openlamp/wled-midi-web](https://github.com/openlamp/openlamp-demo-web) — single-HTML Web-MIDI impl,
     full 3-mode parity, zero-install via the WLED filesystem.
-  - [openlamp/matrix](https://github.com/openlamp/matrix) — multi-device canvas router: `mirror`
+  - [openlamp/matrix](https://github.com/openlamp/openlamp-tool-canvas) — multi-device canvas router: `mirror`
     (HTTP broadcast) + `unified` (per-device slice via realtime **DDP / Art-Net / E1.31**), plus a
     2-D **serpentine** canvas (`posfn: "column"`).
-  - [openlamp/bome](https://github.com/openlamp/bome) — no-code Bome MIDI Translator adapter pack.
+  - [openlamp/bome](https://github.com/openlamp/openlamp-pack-bome) — no-code Bome MIDI Translator adapter pack.
   - **Bidirectional feedback port** in the engine (`OpenLamp Feedback` MIDI OUT) reflecting state.
 
 ## Roadmap

@@ -10,7 +10,7 @@
 >
 > **If any actor has an explicit need — a guarantee for a commercial or closed use case, patent
 > certainty, a specific licence, or anything else that would let you build on this with confidence —
-> please voice it.** Open an [issue](https://github.com/openlamp/wled-midi/issues) or reach the
+> please voice it.** Open an [issue](https://github.com/openlamp/openlamp-spec-midi/issues) or reach the
 > maintainer ([@Beennnn](https://github.com/Beennnn)); it will be genuinely weighed in the decision.
 > Better to hear the need now, while the choice is still open, than after it's settled.
 
@@ -41,13 +41,13 @@ improvements to stay open**.
 
 | Repo | Role | License (repo) | Note |
 |---|---|---|---|
-| [openlamp/wled-midi](https://github.com/openlamp/wled-midi) | the convention (spec + docs) | **MIT** | + [SPEC §14](../SPEC.md) RF non-assertion policy |
-| [openlamp/engine](https://github.com/openlamp/engine) | reference implementation | **MIT** | *PyPI `openlamp-lamp` still shows EUPL-1.2 on the old 0.1.x builds — stale; corrects on the next release* |
-| [openlamp/wled-midi-web](https://github.com/openlamp/wled-midi-web) | browser impl | **MIT** | |
-| [openlamp/matrix](https://github.com/openlamp/matrix) | multi-device router | **MIT** | |
-| [openlamp/bome](https://github.com/openlamp/bome) | Bome pack | **MIT** | |
-| [openlamp/live](https://github.com/openlamp/live) | Ableton frontend | **MIT** | |
-| [openlamp/midi](https://github.com/openlamp/midi) | tempo / Ableton Link | **MIT** | *own source MIT (Link team confirmed, Jul 2026); the optional `[link]` extra pulls **aalink GPLv3** + **Link GPLv2+**, so the distributed combination is GPLv3 and commercial bundling needs a commercial Link license — kept clean via a **process boundary** (see below)* |
+| [openlamp/wled-midi](https://github.com/openlamp/openlamp-spec-midi) | the convention (spec + docs) | **MIT** | + [SPEC §14](../SPEC.md) RF non-assertion policy |
+| [openlamp/engine](https://github.com/openlamp/openlamp-engine-python) | reference implementation | **MIT** | *PyPI `openlamp-lamp` still shows EUPL-1.2 on the old 0.1.x builds — stale; corrects on the next release* |
+| [openlamp/wled-midi-web](https://github.com/openlamp/openlamp-demo-web) | browser impl | **MIT** | |
+| [openlamp/matrix](https://github.com/openlamp/openlamp-tool-canvas) | multi-device router | **MIT** | |
+| [openlamp/bome](https://github.com/openlamp/openlamp-pack-bome) | Bome pack | **MIT** | |
+| [openlamp/live](https://github.com/openlamp/openlamp-pack-ableton) | Ableton frontend | **MIT** | |
+| [openlamp/midi](https://github.com/openlamp/openlamp-lib-beatsync) | tempo / Ableton Link | **MIT** | *own source MIT (Link team confirmed, Jul 2026); the optional `[link]` extra pulls **aalink GPLv3** + **Link GPLv2+**, so the distributed combination is GPLv3 and commercial bundling needs a commercial Link license — kept clean via a **process boundary** (see below)* |
 
 Everything of ours is **MIT today**. The one real drift to fix on the next publish: two PyPI packages
 still carry an **EUPL-1.2** licence field from before the repos were relicensed to MIT.
@@ -163,12 +163,12 @@ What it would mean to put one of our repos under a given licence:
 
 Different repos can carry **different licences** — and one may even *need* to:
 
-- **The convention repo** ([wled-midi](https://github.com/openlamp/wled-midi)) wants a **permissive**
+- **The convention repo** ([wled-midi](https://github.com/openlamp/openlamp-spec-midi)) wants a **permissive**
   licence (MIT/Apache) + the [§14](../SPEC.md) RF policy, so *anyone* — including closed products — can
   implement it. Copyleft here would defeat the purpose of a standard.
 - **Reference implementations** (engine, web, matrix, bome) can lean either way — permissive for reach,
   or copyleft/EUPL if we want forks to stay open. This is the real MIT-vs-Apache-2.0-vs-EUPL debate.
-- **[openlamp/midi](https://github.com/openlamp/midi)** touches **Ableton Link (GPLv2+)** via **aalink
+- **[openlamp/midi](https://github.com/openlamp/openlamp-lib-beatsync)** touches **Ableton Link (GPLv2+)** via **aalink
   (GPLv3)**. It stays MIT by keeping a **process boundary** — the beat-sync helper (`beatsync.py`) is the
   only thing that ever combines with Link, and it reaches the engine only over local HTTP, so no
   derivative-work obligation flows into the engine or the frontends. The Link team **confirmed this
@@ -187,7 +187,7 @@ without scaring off makers who need a **closed part to survive**, and without ad
 would restrict legitimate exploitation, **including commercial / closed** use. The reconciliation is a
 **layered, best-of-both-worlds** setup:
 
-- **The convention** ([wled-midi](https://github.com/openlamp/wled-midi)) → stays **permissive (MIT) +
+- **The convention** ([wled-midi](https://github.com/openlamp/openlamp-spec-midi)) → stays **permissive (MIT) +
   [§14](../SPEC.md)**. A *standard* must be implementable by **everyone, including fully closed
   products** — copyleft here would defeat its purpose.
 - **The reference implementations** (engine, web, matrix, bome, live) → **MPL-2.0** (Mozilla
@@ -197,7 +197,7 @@ would restrict legitimate exploitation, **including commercial / closed** use. T
   - **Closed-friendly** → a company can embed or wrap the code in a **closed, commercial product**; only
     direct modifications to the MPL files come back. Nobody who needs a closed layer is shut out.
   - **Explicit patent grant + retaliation**, and **compatible with GPL / Apache / EUPL** if code mixes.
-- **[openlamp/midi](https://github.com/openlamp/midi) is the one exception → it stays MIT**, not MPL.
+- **[openlamp/midi](https://github.com/openlamp/openlamp-lib-beatsync) is the one exception → it stays MIT**, not MPL.
   It's the only repo that ever combines with GPL code (Ableton Link via aalink), so the cleanest,
   least-surprising setup is: **our source stays MIT**, and we simply document that the optional `[link]`
   extra pulls in **aalink (GPLv3)** + **Ableton Link (GPLv2+)**, that the *distributed combination*

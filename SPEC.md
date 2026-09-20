@@ -84,7 +84,7 @@ means:
 - **`mpe`** — expressive, per-note play across a pool of lamps (Seaboard / Push 3).
 - **Extensions** — a cross-device matrix / canvas for club & large rigs (§8).
 
-*Implementations today*: `engine/midi.py` = `lamp` + `mpe`; [wled-midi-web](https://github.com/openlamp/wled-midi-web)
+*Implementations today*: `engine/midi.py` = `lamp` + `mpe`; [wled-midi-web](https://github.com/openlamp/openlamp-demo-web)
 = `lamp` in the browser (Web MIDI); the Ableton clip pack emits `lamp`. `strip`
 (piano-guide + split-zone) is spec'd here and on the implementation roadmap.
 

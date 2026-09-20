@@ -16,7 +16,7 @@ independently; implementers pin a version.
   between the lowest and highest held note, in the channel's colour; releasing shrinks/clears it.
   Each channel owns one zone, so a keyboard's **split zones** show as coloured bands (left hand
   ch1, right hand ch2 → two colours) — a live **split-zone display**. Shipped in
-  [wled-midi-web](https://github.com/openlamp/wled-midi-web) and [engine](https://github.com/openlamp/engine).
+  [wled-midi-web](https://github.com/openlamp/openlamp-demo-web) and [engine](https://github.com/openlamp/openlamp-engine-python).
 
 ## 0.6.1 — 2026-07-16
 
