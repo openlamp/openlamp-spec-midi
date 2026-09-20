@@ -1,6 +1,6 @@
-# wled-midi — documentation
+# OpenLamp MIDI — documentation
 
-Topic map for the [wled-midi convention](../README.md). The **normative spec is a single,
+Topic map for the [OpenLamp MIDI spec](../README.md). The **normative spec is a single,
 atomic file** ([SPEC.md](../SPEC.md)) — one source of truth, no cross-file drift; this index
 segments the docs **by topic** and points into it. Hardware and tooling live on their own pages.
 

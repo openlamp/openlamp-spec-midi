@@ -104,7 +104,7 @@ the *transforms* (how a value becomes a WLED number) are the stable contract.
 [Bome MIDI Translator Pro](https://www.bome.com/products/miditranslator) (an independent
 product — not affiliated with this project) is a natural fit as a **general-purpose adapter**:
 it takes whatever MIDI a controller sends and **re-labels it** into the messages above, then
-routes it to the virtual port a wled-midi implementation listens on. The only thing to *emit*
+routes it to the virtual port an OpenLamp MIDI implementation listens on. The only thing to *emit*
 is the raw MIDI on the outgoing side — here it is in hex (channel 1 = all lamps; change the
 channel nibble to target a group):
 
@@ -118,7 +118,7 @@ channel nibble to target a group):
 
 A no-code translator pack (one translator per action, capture-your-controller on the incoming
 side) is available at **[openlamp/bome](https://github.com/openlamp/openlamp-pack-bome)** — paste the
-[`wled-midi.generic.txt`](https://github.com/openlamp/openlamp-pack-bome/blob/main/wled-midi.generic.txt)
+[`openlamp-midi.generic.txt`](https://github.com/openlamp/openlamp-pack-bome/blob/main/openlamp-midi.generic.txt)
 blocks into a Bome preset and capture your buttons. The same tool can also carry
 **return-feedback** logic (WLED state → light up the controller's own LEDs).
 

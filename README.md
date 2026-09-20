@@ -11,7 +11,7 @@ This repo is **just the specification** — no runtime, no dependencies. It exis
 that multiple tools can speak the same MIDI↔WLED language instead of each inventing
 its own.
 
-> 🚧 **Status — a project just getting started, built in the open.** wled-midi is young and
+> 🚧 **Status — a project just getting started, built in the open.** OpenLamp MIDI is young and
 > **structuring itself progressively**: the spec is still a **draft** (see [SPEC.md](SPEC.md))
 > and squarely in a **build phase**. It's meant to be **co-constructed** — shaped together with
 > anyone who wants to take part (WLED users, tool makers, controller and firmware authors).
@@ -105,7 +105,7 @@ plus hardware guides: [piano-aligned LED strip](docs/hardware/piano-strip.md) an
 
 ## Credits & prior art
 
-wled-midi is really a *write-down* of needs and ideas the WLED community has been voicing for
+OpenLamp MIDI is really a *write-down* of needs and ideas the WLED community has been voicing for
 years. It's shaped by — and owes thanks to — the discussions and projects below. None are
 affiliated with it and none have endorsed it; they're credited for the **ideas**. Building on
 this, or want a credit added/changed/removed? Open a PR or an issue.
@@ -139,7 +139,7 @@ sustain is hard, so a closed interface is a legitimate way to protect it.
 - [Piano Led](https://www.facebook.com/pianoled/reels/) (Lille, FR) — a piano-LED visualiser shown in short video reels: the strip lights the notes as you play.
 - Synthesia LED guides and the various *Instructables* piano-LED tutorials.
 
-wled-midi runs **in parallel**, with a complementary aim: an **open, standardised, collaborative**
+OpenLamp MIDI runs **in parallel**, with a complementary aim: an **open, standardised, collaborative**
 convention, so that any tool — a learning app, a DIY strip, a stage rig, a hardware controller —
 can speak the same MIDI↔WLED language and interoperate. We're not here to displace anyone, and
 we'll do our best that **each finds its place**: where a product's model needs a closed protocol,
@@ -151,14 +151,14 @@ That is the project's guiding line: **advanced, integrated solutions that anyone
 varied contexts** — from a beginner's first lit key to a full live show — kept open so the whole
 community can build on them, together.
 
-**Software that already drives WLED** (the neighbourhood wled-midi joins — these mostly stream
-*pixels* over WLED's realtime UDP: DDP / Art-Net / E1.31. wled-midi is the **MIDI-native, per-message**
+**Software that already drives WLED** (the neighbourhood OpenLamp MIDI joins — these mostly stream
+*pixels* over WLED's realtime UDP: DDP / Art-Net / E1.31. OpenLamp MIDI is the **MIDI-native, per-message**
 member of the family: one MIDI event → one WLED action, live, rather than a pre-rendered pixel feed):
 
 - [**xLights**](https://xlights.org) (Win/Mac/Linux) — the big open-source **LED sequencer** + show scheduler; drives WLED over DDP/Art-Net/E1.31. Timeline-authored shows, not live MIDI.
 - [**LedFx**](https://github.com/LedFx/LedFx) (Win/Mac/Linux) — **audio-reactive** LED visualiser → WLED via DDP/E1.31; its DDP sender is the reference the [canvas](https://github.com/openlamp/openlamp-tool-canvas) router's transport models.
 - [**QLC+**](https://www.qlcplus.org) (Win/Mac/Linux/RPi) — free **DMX / lighting control** that takes **MIDI in** and outputs Art-Net/E1.31 → WLED. The closest "MIDI → lights" cousin, but DMX-channel-oriented rather than a note/CC convention.
-- [**Chataigne**](https://github.com/benkuper/Chataigne) (Win/Mac/Linux) — Ben Kuper's modular **glue** (MIDI/OSC/DMX/Art-Net/sACN); a natural host to *implement* wled-midi as a bridge.
+- [**Chataigne**](https://github.com/benkuper/Chataigne) (Win/Mac/Linux) — Ben Kuper's modular **glue** (MIDI/OSC/DMX/Art-Net/sACN); a natural host to *implement* OpenLamp MIDI as a bridge.
 - [**Hyperion.ng**](https://github.com/hyperion-project/hyperion.ng) (Win/Mac/Linux) — ambient/bias lighting → WLED. And WLED's own canonical list: [compatible software](https://kno.wled.ge/basics/compatible-software/).
 
 **Apps & products built on WLED** (finished tools you can just use):
@@ -166,15 +166,15 @@ member of the family: one MIDI event → one WLED action, live, rather than a pr
 - [**LumiDeck**](https://github.com/openlamp/lumideck-support) — a **Stream Deck** app that drives your WLED lamps & strips locally from physical keys: colour, brightness, effects/palettes by name, scenes, and beat-sync (~45 ms/press). From the OpenLamp author, built on the [engine](https://github.com/openlamp/openlamp-engine-python); WLED-first.
 - [**OpenLamp Beat**](https://github.com/openlamp/openlamp-addon-beat) — a **Home Assistant** add-on that flashes your WLED lamps **on the beat** of an Ableton Link / MIDI-clock session (runs the [engine](https://github.com/openlamp/openlamp-engine-python) + beatsync, exposes `switch.beat_sync` via MQTT discovery). Install-from-URL, no Docker knowledge needed.
 
-**Kindred products** (the same instinct, done as closed hardware): DAW-driven recording lamps like the [Punchlight Recording Lamp USB RGB](https://www.thomannmusic.com/punchlight_recording_lamp_usb_rgb.htm) — which turns a light red / green straight from your DAW's record state — show the appetite for *DAW → light*. wled-midi is the open, WLED version of exactly that: a record-arm note/CC → a lamp goes red.
+**Kindred products** (the same instinct, done as closed hardware): DAW-driven recording lamps like the [Punchlight Recording Lamp USB RGB](https://www.thomannmusic.com/punchlight_recording_lamp_usb_rgb.htm) — which turns a light red / green straight from your DAW's record state — show the appetite for *DAW → light*. OpenLamp MIDI is the open, WLED version of exactly that: a record-arm note/CC → a lamp goes red.
 
 **Expressive controllers & MPE sources** (what the `strip` / `mpe` modes are made for): [ROLI Seaboard](https://roli.com) (the flagship MPE controller — also switches single-channel MIDI ↔ MPE, which inspired the unified channel/zone design), [Expressive E Touché](https://www.expressivee.com), the [TEControl USB-MIDI Breath Controller (BBC2)](https://www.tecontrol.se) (breath + bite expression), [Beatbars](https://www.beatbars.com) (MIDI expression pedals/bars for organists), and MPE-capable instruments like [Spectrasonics Omnisphere](https://www.spectrasonics.net/products/omnisphere/).
 
 **Tools that pair well** (ways to *emit* the convention):
 
-- [**Trevliga Spel — Stream Deck MIDI plugin**](https://trevligaspel.se/streamdeck/midi/index.php) ([Elgato Marketplace](https://marketplace.elgato.com/product/midi-b068a591-1a69-48fe-9206-b2d24762228b)) — a rock-solid Stream Deck MIDI plugin (Windows/macOS, MIDI 1.0) with a genuinely great **scripting DSL**. A daily-driver for controlling MIDI gear, and one of the easiest ways to fire wled-midi notes/CC from hardware **on cue, with no code** (see [Scripting LED sequences](#scripting-led-sequences)).
+- [**Trevliga Spel — Stream Deck MIDI plugin**](https://trevligaspel.se/streamdeck/midi/index.php) ([Elgato Marketplace](https://marketplace.elgato.com/product/midi-b068a591-1a69-48fe-9206-b2d24762228b)) — a rock-solid Stream Deck MIDI plugin (Windows/macOS, MIDI 1.0) with a genuinely great **scripting DSL**. A daily-driver for controlling MIDI gear, and one of the easiest ways to fire OpenLamp MIDI notes/CC from hardware **on cue, with no code** (see [Scripting LED sequences](#scripting-led-sequences)).
 
-- [**Bome MIDI Translator Pro**](https://www.bome.com/products/miditranslator) — a general-purpose MIDI mapper / router / scripter, and the **universal adapter**: translate *any* input (a controller sending the "wrong" notes/CC, keystrokes, timers, DAW MIDI) into wled-midi, **and integrate the MIDI flows between devices** — merge, split and route between hardware, virtual ports and DAWs. Also a natural home for value-level **return-feedback** logic. No-code **[starter pack → openlamp/openlamp-pack-bome](https://github.com/openlamp/openlamp-pack-bome)** (paste-in translators + a WLED primer from Bome's point of view).
+- [**Bome MIDI Translator Pro**](https://www.bome.com/products/miditranslator) — a general-purpose MIDI mapper / router / scripter, and the **universal adapter**: translate *any* input (a controller sending the "wrong" notes/CC, keystrokes, timers, DAW MIDI) into OpenLamp MIDI, **and integrate the MIDI flows between devices** — merge, split and route between hardware, virtual ports and DAWs. Also a natural home for value-level **return-feedback** logic. No-code **[starter pack → openlamp/openlamp-pack-bome](https://github.com/openlamp/openlamp-pack-bome)** (paste-in translators + a WLED primer from Bome's point of view).
 
 **Tooling to build & test an implementation:**
 
@@ -183,12 +183,12 @@ member of the family: one MIDI event → one WLED action, live, rather than a pr
 - *Windows* — [**loopMIDI**](https://www.tobias-erichsen.de/software/loopmidi.html) (Tobias Erichsen): create the virtual MIDI ports the convention routes through (monitor with ShowMIDI, generate/route with Bome). For MIDI over the network, [**rtpMIDI**](https://www.tobias-erichsen.de/software/rtpmidi.html) (same author — RTP-MIDI / AppleMIDI). The classic [**MIDI-OX**](http://www.midiox.com) monitors + routes MIDI.
 - *Linux* — virtual ports via the ALSA **`snd-virmidi`** kernel module (or JACK / PipeWire); **`aseqdump -l`** lists ports and **`aseqdump -p <port>`** monitors them; **[a2jmidid](https://github.com/jackaudio/a2jmidid)** bridges ALSA ↔ JACK for routing into DAWs (Bitwig, Reaper).
 
-**The two open standards this bridges** — wled-midi stands equally on both pillars, and owes each its thanks:
+**The two open standards this bridges** — OpenLamp MIDI stands equally on both pillars, and owes each its thanks:
 
-- **MIDI** — the universal music-control standard stewarded by the [MIDI Association](https://midi.org). The Core is plain **MIDI 1.0**; the `mpe` and `strip` modes build directly on **MPE** (MIDI Polyphonic Expression — per-note pitch / pressure / slide), and the forward-compat profile follows **[MIDI 2.0](https://midi.org/midi-2-0)** (high-resolution control). Everything wled-midi *reads* is ordinary MIDI — nothing proprietary on the input side.
+- **MIDI** — the universal music-control standard stewarded by the [MIDI Association](https://midi.org). The Core is plain **MIDI 1.0**; the `mpe` and `strip` modes build directly on **MPE** (MIDI Polyphonic Expression — per-note pitch / pressure / slide), and the forward-compat profile follows **[MIDI 2.0](https://midi.org/midi-2-0)** (high-resolution control). Everything OpenLamp MIDI *reads* is ordinary MIDI — nothing proprietary on the input side.
 - **WLED** — [WLED](https://kno.wled.ge) (Aircoookie and the WLED community), whose public local **JSON-state + realtime-UDP** API every mapping *resolves to* — nothing proprietary on the output side either.
 
-wled-midi is just the agreed **dictionary between these two open standards**: MIDI in, WLED out.
+OpenLamp MIDI is just the agreed **dictionary between these two open standards**: MIDI in, WLED out.
 
 ## License
 
