@@ -77,7 +77,7 @@ means:
   - *piano-guide* — a strip on the keys lights the note to play (`keymap`); learning / Synthesia.
   - *split-zone display* — colour LED **ranges** to show a keyboard's **split zones** (which key
     range drives which instrument), pairing with a split/zone tool such as the Ableton **Zone**
-    M4L device ([Beennnn/zone-m4l](https://github.com/Beennnn/zone-m4l)): a zone = a contiguous
+    M4L device ([Beennnn/zone-m4l](https://github.com/Beennnn/ableton-m4l-zone)): a zone = a contiguous
     position range painted with the zone's colour.
   - *stage backdrop* — a strip behind the keys as a show element (`interpolate`).
   - *sequencer / pixel-painting* — address individual LEDs directly (`direct`), à la theTiPE's touch area.
