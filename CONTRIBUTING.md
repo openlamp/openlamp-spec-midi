@@ -7,7 +7,7 @@ integrated solutions usable by everyone.**
 
 ## Ways to help
 
-- **Describe a need or use case** — open an [issue](https://github.com/openlamp/wled-midi/issues).
+- **Describe a need or use case** — open an [issue](https://github.com/openlamp/openlamp-spec-midi/issues).
   The spec is a *write-down of real needs*; the clearest way to improve it is to tell us what you're
   trying to do that it doesn't cover yet.
 - **Propose a change to the convention** — a PR touching [SPEC.md](SPEC.md). Keep it consistent with

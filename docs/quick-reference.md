@@ -117,8 +117,8 @@ channel nibble to target a group):
 | **Program Change** → preset | `C0 pp` |
 
 A no-code translator pack (one translator per action, capture-your-controller on the incoming
-side) is available at **[openlamp/bome](https://github.com/openlamp/bome)** — paste the
-[`wled-midi.generic.txt`](https://github.com/openlamp/bome/blob/main/wled-midi.generic.txt)
+side) is available at **[openlamp/bome](https://github.com/openlamp/openlamp-pack-bome)** — paste the
+[`wled-midi.generic.txt`](https://github.com/openlamp/openlamp-pack-bome/blob/main/wled-midi.generic.txt)
 blocks into a Bome preset and capture your buttons. The same tool can also carry
 **return-feedback** logic (WLED state → light up the controller's own LEDs).
 

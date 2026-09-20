@@ -133,7 +133,7 @@ led(note) = round((note − firstnote) × lpk)                     (light led(no
 Examples: a **144 LED/m** strip over an **88-key** piano (~1.23 m ≈ 176 LEDs) → `lpk ≈ 176/88 = 2.0`,
 `firstnote = 21`. A **61-key** (C2–C7) controller with a 100-LED strip → `lpk ≈ 100/61 ≈ 1.6`,
 `firstnote = 36`. These are exactly the `strip.lpk` / `strip.firstnote` config keys in the
-[engine](https://github.com/openlamp/engine) and [wled-midi-web](https://github.com/openlamp/wled-midi-web).
+[engine](https://github.com/openlamp/openlamp-engine-python) and [wled-midi-web](https://github.com/openlamp/openlamp-demo-web).
 
 Each key lights ~2–3 LEDs (density > keys). Velocity → brightness, note-off → fade (see
 [`strip` mode](../../SPEC.md)).
