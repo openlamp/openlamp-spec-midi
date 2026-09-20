@@ -23,7 +23,7 @@
 
 ## Why it's open
 
-wled-midi is young and **co-constructed** (see the status note in the [README](../README.md)). The
+OpenLamp MIDI is young and **co-constructed** (see the status note in the [README](../README.md)). The
 licence should reflect what best serves the WLED ecosystem and the people who build on it — so it's
 right to ask *them* before settling, rather than lock it in early and churn it later. Two things are
 already true regardless of the outcome:
@@ -41,9 +41,9 @@ improvements to stay open**.
 
 | Repo | Role | License (repo) | Note |
 |---|---|---|---|
-| [openlamp/wled-midi](https://github.com/openlamp/openlamp-spec-midi) | the convention (spec + docs) | **MIT** | + [SPEC §14](../SPEC.md) RF non-assertion policy |
+| [openlamp/openlamp-spec-midi](https://github.com/openlamp/openlamp-spec-midi) | the convention (spec + docs) | **MIT** | + [SPEC §14](../SPEC.md) RF non-assertion policy |
 | [openlamp/engine](https://github.com/openlamp/openlamp-engine-python) | reference implementation | **MIT** | *PyPI `openlamp-lamp` still shows EUPL-1.2 on the old 0.1.x builds — stale; corrects on the next release* |
-| [openlamp/wled-midi-web](https://github.com/openlamp/openlamp-demo-web) | browser impl | **MIT** | |
+| [openlamp/openlamp-demo-web](https://github.com/openlamp/openlamp-demo-web) | browser impl | **MIT** | |
 | [openlamp/matrix](https://github.com/openlamp/openlamp-tool-canvas) | multi-device router | **MIT** | |
 | [openlamp/bome](https://github.com/openlamp/openlamp-pack-bome) | Bome pack | **MIT** | |
 | [openlamp/live](https://github.com/openlamp/openlamp-pack-ableton) | Ableton frontend | **MIT** | |
@@ -163,7 +163,7 @@ What it would mean to put one of our repos under a given licence:
 
 Different repos can carry **different licences** — and one may even *need* to:
 
-- **The convention repo** ([wled-midi](https://github.com/openlamp/openlamp-spec-midi)) wants a **permissive**
+- **The convention repo** ([OpenLamp MIDI](https://github.com/openlamp/openlamp-spec-midi)) wants a **permissive**
   licence (MIT/Apache) + the [§14](../SPEC.md) RF policy, so *anyone* — including closed products — can
   implement it. Copyleft here would defeat the purpose of a standard.
 - **Reference implementations** (engine, web, matrix, bome) can lean either way — permissive for reach,
@@ -187,7 +187,7 @@ without scaring off makers who need a **closed part to survive**, and without ad
 would restrict legitimate exploitation, **including commercial / closed** use. The reconciliation is a
 **layered, best-of-both-worlds** setup:
 
-- **The convention** ([wled-midi](https://github.com/openlamp/openlamp-spec-midi)) → stays **permissive (MIT) +
+- **The convention** ([OpenLamp MIDI](https://github.com/openlamp/openlamp-spec-midi)) → stays **permissive (MIT) +
   [§14](../SPEC.md)**. A *standard* must be implementable by **everyone, including fully closed
   products** — copyleft here would defeat its purpose.
 - **The reference implementations** (engine, web, matrix, bome, live) → **MPL-2.0** (Mozilla

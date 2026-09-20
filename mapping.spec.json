@@ -1,7 +1,7 @@
 {
-  "_comment": "WLED-MIDI default map — canonical, machine-readable. Numbers remappable; the CC transforms and zone semantics in SPEC.md are the stable, normative part. Notes are organised in zones: look / util / modifier.",
+  "_comment": "OpenLamp MIDI default map — canonical, machine-readable. Numbers remappable; the CC transforms and zone semantics in SPEC.md are the stable, normative part. Notes are organised in zones: look / util / modifier.",
   "_version_note": "SPEC.md in this repo is the single source of truth for the version. This file must carry the same number — it is the machine-readable face of that document, not an independently versioned artifact.",
-  "spec": "wled-midi",
+  "spec": "openlamp-midi",
   "version": "0.6.3",
   "profiles": {
     "core": "MIDI 1.0, channel = group (this file's notes/cc). SPEC §1-10.",

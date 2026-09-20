@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Generate a wled-midi demo MIDI clip (`wled-midi-demo.mid`).
+"""Generate an OpenLamp MIDI demo clip (`openlamp-midi-demo.mid`).
 
-A Standard MIDI File that *emits the wled-midi convention* — drop it on a MIDI track in any DAW
-(Ableton Live, Logic, Reaper, Bitwig…) and route that track's MIDI OUT to your wled-midi port
+A Standard MIDI File that *emits OpenLamp MIDI* — drop it on a MIDI track in any DAW
+(Ableton Live, Logic, Reaper, Bitwig…) and route that track's MIDI OUT to your OpenLamp MIDI port
 (the engine's `OpenLamp` virtual port). It plays a short showcase: colour looks, a brightness
 fade (CC 1), a hue sweep (CC 3), a flash, and a blackout/restore.
 
@@ -10,7 +10,7 @@ Why a `.mid` and not a `.als`: a MIDI file is a stable, DAW-agnostic format that
 whereas an Ableton `.als` is a version-specific gzipped-XML session that breaks easily. Drag this
 `.mid` into a Live MIDI track and you have the "Ableton demo" — in any DAW.
 
-Run:  python3 examples/gen-demo-mid.py    (writes examples/wled-midi-demo.mid)
+Run:  python3 examples/gen-demo-mid.py    (writes examples/openlamp-midi-demo.mid)
 Pure stdlib.
 """
 import os, struct
@@ -71,7 +71,13 @@ def main():
     # --- serialise to a format-0 track ---
     events.sort(key=lambda e: e[0])
     track = bytearray()
-    track += b"\x00" + b"\xFF\x03\x0Ewled-midi demo"          # track name
+    # Track-name meta event: 0xFF 0x03 <len> <text>. The length byte is COMPUTED, not
+    # hardcoded — it used to be a literal \x0E matching "wled-midi demo" (14 chars), so the
+    # 2026-09-20 rename to "OpenLamp MIDI demo" would have silently emitted a corrupt SMF.
+    # Valid for any name under 128 bytes (single-byte VLQ length).
+    name = b"OpenLamp MIDI demo"
+    assert len(name) < 128
+    track += b"\x00" + b"\xFF\x03" + bytes([len(name)]) + name   # track name
     track += b"\x00" + b"\xFF\x51\x03" + struct.pack(">I", 500000)[1:]  # tempo 120 BPM
     last = 0
     for abs_t, data in events:
@@ -81,7 +87,7 @@ def main():
 
     header = b"MThd" + struct.pack(">IHHH", 6, 0, 1, PPQ)
     chunk = b"MTrk" + struct.pack(">I", len(track)) + bytes(track)
-    out = os.path.join(here, "wled-midi-demo.mid")
+    out = os.path.join(here, "openlamp-midi-demo.mid")
     with open(out, "wb") as f:
         f.write(header + chunk)
     print("wrote", out, "(%d bytes, %d events)" % (len(header + chunk), len(events)))

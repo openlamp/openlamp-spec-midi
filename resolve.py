@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""wled-midi reference resolver — turn a MIDI event into the WLED JSON it means.
+"""OpenLamp MIDI reference resolver — turn a MIDI event into the WLED JSON it means.
 
 The *executable* form of SPEC.md's transforms: a golden reference for implementers
 and tests. Spec-only helper (stdlib) — NOT a runtime (no MIDI I/O, no HTTP). Reads
@@ -124,7 +124,7 @@ def selftest(spec):
 
 def main():
     spec = load()
-    ap = argparse.ArgumentParser(description="wled-midi reference resolver")
+    ap = argparse.ArgumentParser(description="OpenLamp MIDI reference resolver")
     ap.add_argument("kind", nargs="?", choices=["note", "cc", "pc"])
     ap.add_argument("args", nargs="*", type=int)
     ap.add_argument("--fxcount", type=int, default=FALLBACK_FXCOUNT)

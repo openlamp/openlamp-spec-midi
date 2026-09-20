@@ -1,7 +1,27 @@
 # Changelog
 
-All notable changes to the WLED-MIDI convention. This spec is versioned
+All notable changes to the OpenLamp MIDI spec. This spec is versioned
 independently; implementers pin a version.
+
+Entries up to and including 0.6.3 name the spec `wled-midi` — its name until 2026-09-20.
+They are left as written: a changelog records what was true on the day.
+
+## Unreleased
+
+- **The convention is now called OpenLamp MIDI** (2026-09-20) — one name for one thing.
+  Its former name was `wled-midi`; the repo had already moved to `openlamp-spec-midi`,
+  leaving the spec itself with a second, older name. **No wire change**: the notes, CC,
+  Program Change and JSON payloads are byte-for-byte those of 0.6.3, so the version is
+  deliberately *not* bumped. Only names moved:
+  - `mapping.spec.json` — the self-describing `"spec"` field now reads `openlamp-midi`
+    (nothing reads this field; it is a label, not a wire value).
+  - `openlamp-pack-bome` — the paste-in template file is now `openlamp-midi.generic.txt`
+    (was `wled-midi.generic.txt`).
+  - `examples/openlamp-midi-demo.mid` (was `wled-midi-demo.mid`) — regenerated so its embedded
+    track name matches; the musical payload is byte-identical. Its generator now *computes* the
+    track-name length byte, which was hardcoded and would have emitted a corrupt file on rename.
+  - Searching for `wled-midi` still finds this project: the old name is kept in SPEC.md,
+    in this changelog, and in the Bome pack's README.
 
 ## 0.6.3 — 2026-07-17
 

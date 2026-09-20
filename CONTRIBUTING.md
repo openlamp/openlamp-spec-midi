@@ -1,6 +1,6 @@
-# Contributing to wled-midi
+# Contributing to OpenLamp MIDI
 
-wled-midi is **young and co-constructed** — a draft convention shaped together with the people who
+OpenLamp MIDI is **young and co-constructed** — a draft convention shaped together with the people who
 use WLED and build MIDI tools. Corrections, ideas and implementations are all welcome, and early on
 the structure is expected to move and sharpen. The guiding line for every decision: **advanced,
 integrated solutions usable by everyone.**

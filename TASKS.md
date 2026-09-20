@@ -1,4 +1,4 @@
-# TASKS — wled-midi
+# TASKS — OpenLamp MIDI
 
 Technical roadmap for the convention and its reference implementations. One item = a piece of
 convention or implementation work.
@@ -18,7 +18,7 @@ convention or implementation work.
 - **Channel → segment routing** (`lamp`) and the **per-window batching** of the beat pulse (SPEC §7).
 - **Reference implementations**:
   - [openlamp/engine](https://github.com/openlamp/openlamp-engine-python) — the reference engine (`midi.py`).
-  - [openlamp/wled-midi-web](https://github.com/openlamp/openlamp-demo-web) — single-HTML Web-MIDI impl,
+  - [openlamp/openlamp-demo-web](https://github.com/openlamp/openlamp-demo-web) — single-HTML Web-MIDI impl,
     full 3-mode parity, zero-install via the WLED filesystem.
   - [openlamp/matrix](https://github.com/openlamp/openlamp-tool-canvas) — multi-device canvas router: `mirror`
     (HTTP broadcast) + `unified` (per-device slice via realtime **DDP / Art-Net / E1.31**), plus a

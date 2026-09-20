@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""wled-verify — send the wled-midi payloads to a real WLED device and watch it react.
+"""wled-verify — send the OpenLamp MIDI payloads to a real WLED device and watch it react.
 
 The one thing self-tests can't prove is that a real WLED device forwards the individual-LED
 `seg[].i` payload (used by strip / mpe / matrix) and the look colours the way the convention
@@ -15,7 +15,7 @@ doesn't match on the device is a real finding to feed back into the impl (engine
 """
 import sys, json, time, argparse, urllib.request
 
-# wled-midi look notes 60-67 -> colours (SPEC §"looks"); a subset to eyeball.
+# OpenLamp MIDI look notes 60-67 -> colours (SPEC §"looks"); a subset to eyeball.
 LOOKS = [
     ("red",     [255, 0, 0]),
     ("green",   [0, 255, 0]),

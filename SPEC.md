@@ -1,6 +1,10 @@
-# WLED-MIDI — a convention for controlling WLED over MIDI
+# OpenLamp MIDI — a convention for controlling WLED over MIDI
 
 **Version 0.6.3** · status: draft · license: MIT · patent policy: royalty-free, non-assertion (§14)
+
+> **Formerly `wled-midi`.** This spec was called `wled-midi` until 2026-09-20; it is now
+> **OpenLamp MIDI**, one name for one thing. The rename changed no behaviour on the wire —
+> 0.6.3 under either name is the same spec — so the version was not bumped.
 
 A small, open convention that maps standard MIDI messages to
 [WLED](https://kno.wled.ge) actions, so any DAW, sequencer or hardware MIDI
@@ -22,7 +26,7 @@ Everything is normative in the Core; Extensions are advisory.
 its own: **MIDI** on the input side — plain **MIDI 1.0**, with the `mpe`/`strip` modes building on
 **MPE** (MIDI Polyphonic Expression) and a forward-compat **[MIDI 2.0](https://midi.org/midi-2-0)**
 profile (§11), all stewarded by the [MIDI Association](https://midi.org) — and **WLED** on the output
-side, its public **JSON-state + realtime-UDP** API, which every Core mapping resolves to. wled-midi is
+side, its public **JSON-state + realtime-UDP** API, which every Core mapping resolves to. OpenLamp MIDI is
 just the agreed dictionary between the two.
 
 ### One unified syntax — every mode is a *configuration* of it
@@ -84,7 +88,7 @@ means:
 - **`mpe`** — expressive, per-note play across a pool of lamps (Seaboard / Push 3).
 - **Extensions** — a cross-device matrix / canvas for club & large rigs (§8).
 
-*Implementations today*: `engine/midi.py` = `lamp` + `mpe`; [wled-midi-web](https://github.com/openlamp/openlamp-demo-web)
+*Implementations today*: `engine/midi.py` = `lamp` + `mpe`; [openlamp-demo-web](https://github.com/openlamp/openlamp-demo-web)
 = `lamp` in the browser (Web MIDI); the Ableton clip pack emits `lamp`. `strip`
 (piano-guide + split-zone) is spec'd here and on the implementation roadmap.
 
@@ -283,7 +287,7 @@ WLED key and require an engine/router (e.g. [OpenLamp](https://github.com/openla
     Art-Net / E1.31 / **[DDP](http://www.3waylabs.com/ddp/)** (the lightweight, performant
     transport) from a VJ tool — [xLights](https://manual.xlights.org/), [Resolume](https://resolume.com),
     [MadMapper](https://madmapper.com). They work, but are either **not built for live
-    control** (xLights) or **expensive** (Resolume). wled-midi's router fills that gap:
+    control** (xLights) or **expensive** (Resolume). OpenLamp MIDI's router fills that gap:
     **affordable, MIDI-driven, live**, on a Raspberry Pi. *(Confirmed by the club-use-case
     discussion on the WLED forum.)*
 - **Snapshots** — capture/recall the whole rig's state as one look.
