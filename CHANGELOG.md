@@ -55,7 +55,7 @@ single spec, configured by the MIDI channel/zone layout (no separate dialects):
 
 - **Targeted use cases** section added (illustrative, no wire change): enumerates the concrete
   applications per mode, incl. **split-zone display** — colour LED ranges to show a keyboard's
-  split zones, pairing with the Ableton **Zone** M4L device ([Beennnn/zone-m4l](https://github.com/Beennnn/zone-m4l)).
+  split zones, pairing with the Ableton **Zone** M4L device ([Beennnn/zone-m4l](https://github.com/Beennnn/ableton-m4l-zone)).
   Records which frontends implement which modes today.
 
 ## 0.5.0 — 2026-07-15

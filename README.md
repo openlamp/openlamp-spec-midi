@@ -78,7 +78,7 @@ At a glance:
 | [openlamp/bome](https://github.com/openlamp/bome) | **Bome MIDI Translator pack** — map *any* hardware controller onto this convention, no code (generic template + capture) |
 | [openlamp/matrix](https://github.com/openlamp/matrix) | **multi-device canvas router** — compose N WLED into one surface from MIDI: `mirror` (HTTP broadcast) + `unified` (per-device slice via realtime **DDP / Art-Net / E1.31**, incl. a 2-D serpentine canvas) |
 | [openlamp/live](https://github.com/openlamp/live) | Ableton Live frontend — *emits* this convention from a Live set |
-| [Beennnn/zone-m4l](https://github.com/Beennnn/zone-m4l) | **Max for Live** keyboard-split device — *emits* the `strip` / `zone` mode: each instrument's key range lit as a coloured band on the strip, moving live with the split |
+| [Beennnn/zone-m4l](https://github.com/Beennnn/ableton-m4l-zone) | **Max for Live** keyboard-split device — *emits* the `strip` / `zone` mode: each instrument's key range lit as a coloured band on the strip, moving live with the split |
 | [openlamp/prism](https://github.com/openlamp/prism) | **Max for Live** colour-zones device — *emits* the `lamp` mode: split the keyboard into colour zones, play a note → the lamp takes that zone's colour, velocity → brightness |
 
 Building your own? Open a PR to add it here.
