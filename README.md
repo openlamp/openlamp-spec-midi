@@ -1,4 +1,6 @@
-# wled-midi
+<p align="center"><img src="assets/banner.svg" alt="OpenLamp MIDI Spec" width="100%"></p>
+
+# OpenLamp MIDI Spec
 
 > **An open convention for controlling [WLED](https://kno.wled.ge) lights over MIDI.**
 > Drive WLED from any DAW, sequencer or hardware MIDI controller — in time with your
@@ -10,14 +12,14 @@ that multiple tools can speak the same MIDI↔WLED language instead of each inve
 its own.
 
 > 🚧 **Status — a project just getting started, built in the open.** wled-midi is young and
-> **structuring itself progressively**: the convention is still a **draft** (see [SPEC.md](SPEC.md))
+> **structuring itself progressively**: the spec is still a **draft** (see [SPEC.md](SPEC.md))
 > and squarely in a **build phase**. It's meant to be **co-constructed** — shaped together with
 > anyone who wants to take part (WLED users, tool makers, controller and firmware authors).
 > **As a result, its structure is likely to change — and, early on, to change quickly** before it
 > settles. Expect it to move and sharpen over time; ideas, corrections and contributions are
 > welcome via an [issue](https://github.com/openlamp/openlamp-spec-midi/issues) or a PR.
 
-## Why a convention
+## Why a spec
 
 WLED already exposes a clean [JSON state API](https://kno.wled.ge/interfaces/json-api/).
 What's missing is an agreed **MIDI mapping** on top of it: which note is which
@@ -73,13 +75,13 @@ At a glance:
 
 | Project | Role |
 |---|---|
-| [openlamp/engine](https://github.com/openlamp/openlamp-engine-python) | **reference implementation** — receives this convention, drives WLED + Tuya (`midi.py`) |
-| [openlamp/wled-midi-web](https://github.com/openlamp/openlamp-demo-web) | **browser reference impl** — a single HTML file: Web MIDI → WLED JSON (all 3 modes: `lamp` + `strip` + `mpe`), zero install (upload to the WLED filesystem) |
-| [openlamp/bome](https://github.com/openlamp/openlamp-pack-bome) | **Bome MIDI Translator pack** — map *any* hardware controller onto this convention, no code (generic template + capture) |
-| [openlamp/matrix](https://github.com/openlamp/openlamp-tool-canvas) | **multi-device canvas router** — compose N WLED into one surface from MIDI: `mirror` (HTTP broadcast) + `unified` (per-device slice via realtime **DDP / Art-Net / E1.31**, incl. a 2-D serpentine canvas) |
-| [openlamp/live](https://github.com/openlamp/openlamp-pack-ableton) | Ableton Live frontend — *emits* this convention from a Live set |
+| [openlamp/openlamp-engine-python](https://github.com/openlamp/openlamp-engine-python) | **reference implementation** — receives this convention, drives WLED + Tuya (`midi.py`) |
+| [openlamp/openlamp-demo-web](https://github.com/openlamp/openlamp-demo-web) | **browser reference impl** — a single HTML file: Web MIDI → WLED JSON (all 3 modes: `lamp` + `strip` + `mpe`), zero install (upload to the WLED filesystem) |
+| [openlamp/openlamp-pack-bome](https://github.com/openlamp/openlamp-pack-bome) | **Bome MIDI Translator pack** — map *any* hardware controller onto this convention, no code (generic template + capture) |
+| [openlamp/openlamp-tool-canvas](https://github.com/openlamp/openlamp-tool-canvas) | **multi-device canvas router** — compose N WLED into one surface from MIDI: `mirror` (HTTP broadcast) + `unified` (per-device slice via realtime **DDP / Art-Net / E1.31**, incl. a 2-D serpentine canvas) |
+| [openlamp/openlamp-pack-ableton](https://github.com/openlamp/openlamp-pack-ableton) | Ableton Live frontend — *emits* this convention from a Live set |
 | [Beennnn/zone-m4l](https://github.com/Beennnn/ableton-m4l-zone) | **Max for Live** keyboard-split device — *emits* the `strip` / `zone` mode: each instrument's key range lit as a coloured band on the strip, moving live with the split |
-| [openlamp/prism](https://github.com/openlamp/openlamp-m4l-prism) | **Max for Live** colour-zones device — *emits* the `lamp` mode: split the keyboard into colour zones, play a note → the lamp takes that zone's colour, velocity → brightness |
+| [openlamp/openlamp-m4l-prism](https://github.com/openlamp/openlamp-m4l-prism) | **Max for Live** colour-zones device — *emits* the `lamp` mode: split the keyboard into colour zones, play a note → the lamp takes that zone's colour, velocity → brightness |
 
 Building your own? Open a PR to add it here.
 
@@ -154,14 +156,14 @@ community can build on them, together.
 member of the family: one MIDI event → one WLED action, live, rather than a pre-rendered pixel feed):
 
 - [**xLights**](https://xlights.org) (Win/Mac/Linux) — the big open-source **LED sequencer** + show scheduler; drives WLED over DDP/Art-Net/E1.31. Timeline-authored shows, not live MIDI.
-- [**LedFx**](https://github.com/LedFx/LedFx) (Win/Mac/Linux) — **audio-reactive** LED visualiser → WLED via DDP/E1.31; its DDP sender is the reference the [matrix](https://github.com/openlamp/openlamp-tool-canvas) router's transport models.
+- [**LedFx**](https://github.com/LedFx/LedFx) (Win/Mac/Linux) — **audio-reactive** LED visualiser → WLED via DDP/E1.31; its DDP sender is the reference the [canvas](https://github.com/openlamp/openlamp-tool-canvas) router's transport models.
 - [**QLC+**](https://www.qlcplus.org) (Win/Mac/Linux/RPi) — free **DMX / lighting control** that takes **MIDI in** and outputs Art-Net/E1.31 → WLED. The closest "MIDI → lights" cousin, but DMX-channel-oriented rather than a note/CC convention.
 - [**Chataigne**](https://github.com/benkuper/Chataigne) (Win/Mac/Linux) — Ben Kuper's modular **glue** (MIDI/OSC/DMX/Art-Net/sACN); a natural host to *implement* wled-midi as a bridge.
 - [**Hyperion.ng**](https://github.com/hyperion-project/hyperion.ng) (Win/Mac/Linux) — ambient/bias lighting → WLED. And WLED's own canonical list: [compatible software](https://kno.wled.ge/basics/compatible-software/).
 
 **Apps & products built on WLED** (finished tools you can just use):
 
-- [**LumiDeck**](https://github.com/openlamp/streamdeck-plugin-lumideck-support) — a **Stream Deck** app that drives your WLED lamps & strips locally from physical keys: colour, brightness, effects/palettes by name, scenes, and beat-sync (~45 ms/press). From the OpenLamp author, built on the [engine](https://github.com/openlamp/openlamp-engine-python); WLED-first.
+- [**LumiDeck**](https://github.com/openlamp/lumideck-support) — a **Stream Deck** app that drives your WLED lamps & strips locally from physical keys: colour, brightness, effects/palettes by name, scenes, and beat-sync (~45 ms/press). From the OpenLamp author, built on the [engine](https://github.com/openlamp/openlamp-engine-python); WLED-first.
 - [**OpenLamp Beat**](https://github.com/openlamp/openlamp-addon-beat) — a **Home Assistant** add-on that flashes your WLED lamps **on the beat** of an Ableton Link / MIDI-clock session (runs the [engine](https://github.com/openlamp/openlamp-engine-python) + beatsync, exposes `switch.beat_sync` via MQTT discovery). Install-from-URL, no Docker knowledge needed.
 
 **Kindred products** (the same instinct, done as closed hardware): DAW-driven recording lamps like the [Punchlight Recording Lamp USB RGB](https://www.thomannmusic.com/punchlight_recording_lamp_usb_rgb.htm) — which turns a light red / green straight from your DAW's record state — show the appetite for *DAW → light*. wled-midi is the open, WLED version of exactly that: a record-arm note/CC → a lamp goes red.
@@ -172,7 +174,7 @@ member of the family: one MIDI event → one WLED action, live, rather than a pr
 
 - [**Trevliga Spel — Stream Deck MIDI plugin**](https://trevligaspel.se/streamdeck/midi/index.php) ([Elgato Marketplace](https://marketplace.elgato.com/product/midi-b068a591-1a69-48fe-9206-b2d24762228b)) — a rock-solid Stream Deck MIDI plugin (Windows/macOS, MIDI 1.0) with a genuinely great **scripting DSL**. A daily-driver for controlling MIDI gear, and one of the easiest ways to fire wled-midi notes/CC from hardware **on cue, with no code** (see [Scripting LED sequences](#scripting-led-sequences)).
 
-- [**Bome MIDI Translator Pro**](https://www.bome.com/products/miditranslator) — a general-purpose MIDI mapper / router / scripter, and the **universal adapter**: translate *any* input (a controller sending the "wrong" notes/CC, keystrokes, timers, DAW MIDI) into wled-midi, **and integrate the MIDI flows between devices** — merge, split and route between hardware, virtual ports and DAWs. Also a natural home for value-level **return-feedback** logic. No-code **[starter pack → openlamp/bome](https://github.com/openlamp/openlamp-pack-bome)** (paste-in translators + a WLED primer from Bome's point of view).
+- [**Bome MIDI Translator Pro**](https://www.bome.com/products/miditranslator) — a general-purpose MIDI mapper / router / scripter, and the **universal adapter**: translate *any* input (a controller sending the "wrong" notes/CC, keystrokes, timers, DAW MIDI) into wled-midi, **and integrate the MIDI flows between devices** — merge, split and route between hardware, virtual ports and DAWs. Also a natural home for value-level **return-feedback** logic. No-code **[starter pack → openlamp/openlamp-pack-bome](https://github.com/openlamp/openlamp-pack-bome)** (paste-in translators + a WLED primer from Bome's point of view).
 
 **Tooling to build & test an implementation:**
 
