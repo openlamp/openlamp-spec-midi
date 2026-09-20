@@ -1,7 +1,8 @@
 {
-  "_comment": "WLED-MIDI default map — canonical, machine-readable. Numbers remappable; the CC transforms and zone semantics in SPEC.md are the stable contract. Notes are organised in zones: look / util / modifier.",
+  "_comment": "WLED-MIDI default map — canonical, machine-readable. Numbers remappable; the CC transforms and zone semantics in SPEC.md are the stable, normative part. Notes are organised in zones: look / util / modifier.",
+  "_version_note": "SPEC.md in this repo is the single source of truth for the version. This file must carry the same number — it is the machine-readable face of that document, not an independently versioned artifact.",
   "spec": "wled-midi",
-  "version": "0.3.0",
+  "version": "0.6.3",
   "profiles": {
     "core": "MIDI 1.0, channel = group (this file's notes/cc). SPEC §1-10.",
     "midi2": "forward-compat high-resolution mapping (16/32-bit CC -> WLED 8-bit). SPEC §11.",
@@ -43,8 +44,8 @@
   "clock": { "ticks_per_beat": 24 },
   "modes": {
     "default": "lamp",
-    "lamp":  { "note": "look/action (the notes above)", "channel": "target" },
-    "strip": { "note": "position", "position": ["interpolate", "keymap"], "channel": "target or colour/hand" },
+    "lamp":  { "note": "look/action (the notes above)", "channel": "target", "bigrig": "variant for rigs > 16 lamps: 1 note = 1 lamp, 128 addressable on one channel (SPEC.md, 'One unified syntax')" },
+    "strip": { "note": "position", "position": ["interpolate", "keymap", "direct", "zone"], "channel": "target or colour/hand" },
     "mpe":   { "note": "voice", "channel": "voice" }
   }
 }
